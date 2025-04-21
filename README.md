@@ -1,7 +1,3 @@
-Absolutely! Let's break down the **"Gene Identification and Extraction"** step like I’m explaining it to someone completely new. Think of this like playing a treasure hunt game with a map (your genome), a list of treasures (OXPHOS genes), and tools to dig them out!
-
----
-
 ## 🧩 Step 1: Gene Identification and Extraction (explained super simply)
 
 ### 🎯 **Goal:**
