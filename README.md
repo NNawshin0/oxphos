@@ -140,6 +140,15 @@ done < oxphos_gene_list.txt
 cd oxphos2/gff_matches/
 cat *.gff > oxphos_combined.gff
 ```
+# Once the combined file is created to make sure the combined is is in correct format, use the following code.
+
+```
+wc -l oxphos_combined.gff
+head oxphos_combined.gff
+```
+#head output looks like the following picture. It is correct format.
+![Image](https://github.com/user-attachments/assets/0f3720a9-b612-4b45-bf83-38e155ce7482)
+
 
 ### 🟢 **Step 4: Extract the DNA sequence of the gene**
 
