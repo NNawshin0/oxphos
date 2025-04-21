@@ -53,7 +53,7 @@ https://www.kegg.jp/pathway/map00190
 ### 🟢 **Step 2: Download the duck genome and annotation**
 
 Go to the NCBI genome browser and download:
-
+-- link to directory https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/
 - **Genome FASTA file** (DNA letters):  
   wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
 
@@ -71,10 +71,12 @@ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NA
 Then unzip them:
 
 ```bash
-gunzip GCF_047663525.1_ASM476635v1_genomic.fna.gz
-gunzip GCF_047663525.1_ASM476635v1_genomic.gff.gz
+ gunzip GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+gunzip GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
 ```
-
+Exreacted file names are following 2023 
+GCA_030704485.1_NAwild_v1.0_genomic.fna #genomic
+GCA_030704485.1_NAwild_v1.0_genomic.gbff #annotation
 ---
 
 ### 🟢 **Step 3: Find the genes in the annotation file**
