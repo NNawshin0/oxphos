@@ -57,15 +57,15 @@ Go to the NCBI genome browser and download:
 - **Genome FASTA file** (DNA letters):  
   wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
 
-- **Annotation GFF3 file** (gene map):  
-  `GCF_047663525.1_ASM476635v1_genomic.gff.gz`
+- **Annotation GbFF file** (gene map):  
+  [`GCF_047663525.1_ASM476635v1_genomic.gff.gz`](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz)
 
 You can do this using `wget` on the command line:
 
 ```bash
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.fna.gz
+ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
 
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.gff.gz
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
 ```
 
 Then unzip them:
