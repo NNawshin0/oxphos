@@ -162,6 +162,11 @@ head oxphos_vs_nawild.blastn.out
 cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
 
 
+```
+3output file looks like this after blastn
+
+
+
 
 
 
