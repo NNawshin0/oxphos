@@ -1,277 +1,118 @@
-## 🧩 Step 1: Gene Identification and Extraction (explained super simply)
 
-### 🎯 **Goal:**
-We want to find and save the *exact DNA sequences* of ~80 special genes called **OXPHOS genes** from a big file that contains the entire DNA of a duck (like a giant instruction book).
+# 🧬 OXPHOS Gene Extraction and Probe Design Pipeline
 
----
+This project identifies and extracts ~80 OXPHOS genes from the North American Mallard genome using a reference from Pekin duck, maps them via BLAST, and designs 120mer hybridization probes for targeted sequencing.
 
-## 🧸 What are we doing and why?
+## 📁 Step-by-Step Instructions
 
-Imagine the duck's genome is a HUGE book with millions of letters (A, T, C, G). Somewhere inside this book are instructions (genes) for making energy. We want to:
-1. Make a list of these energy genes (called OXPHOS genes).
-2. Use that list to **look up where each gene lives in the big genome book**.
-3. **Cut out** just those genes and **save them in a separate file**, so we can study them more easily.
-
----
-
-## 🧰 What do we need?
-- A **list of OXPHOS gene names** (like COX4I1, NDUFA6, ATP5F1A…)
-- The **duck genome file** (like a giant FASTA file with all DNA letters)
-- The **duck gene map** (a GFF3 or GTF file — tells us where each gene starts and ends)
-- Some tools like:
-  - `grep`: finds words in files
-  - `awk`: smart text cutter
-  - `gffread`: extracts gene sequences
-  - `bedtools getfasta`: cuts out DNA sequences by coordinates
-
----
-
-## 🧗 Step-by-Step Instructions
-
----
-
-### 🟢 **Step 1: Get your list of genes**
-You need a list of about 80 genes that are involved in the OXPHOS pathway.
-
-#### 📌 How?
-- You can Google: `"OXPHOS genes KEGG pathway"`  
-- Or go here: [KEGG Pathway for OXPHOS](https://www.genome.jp/pathway/map00190)
-- Write down all the gene names you find into a plain text file called `oxphos_gene_list.txt`.
-
+### 🔹 Step 1: Prepare OXPHOS Gene List
+Create a file `oxphos_gene_list.txt` from KEGG pathway (map00190) with gene symbols like:
 ```
-Example content:
 NDUFA6
 COX4I1
 ATP5F1A
 ...
 ```
-https://www.kegg.jp/pathway/map00190
-![image](https://github.com/user-attachments/assets/6c87540a-9426-4f05-b914-1420dbcf3844)
---- gene list downloaded and uploaded to oxphos repo as OXPHOS_gene_List.csv
+🗂️ File also saved as: `OXPHOS_gene_List.csv`
+
 ---
 
-### 🟢 **Step 2: Download the duck genome and annotation**
-
-Go to the NCBI genome browser and download:
--- link to directory https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/
-- **Genome FASTA file** (DNA letters):  
-  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
-
-- **Annotation GbFF file** (gene map):  
-  [`GCF_047663525.1_ASM476635v1_genomic.gff.gz`](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz)
-
-You can do this using `wget` on the command line:
-
+### 🔹 Step 2: Download Duck Genomes
 ```bash
- wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
-
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
-```
-
-Then unzip them:
-
-```bash
- gunzip GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
-gunzip GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
-```
-Exreacted file names are following 2023 
-GCA_030704485.1_NAwild_v1.0_genomic.fna #genomic
-GCA_030704485.1_NAwild_v1.0_genomic.gbff #annotation
----
-
-### 🟢 **Step 3: Find the genes in the annotation file**
-
-Let’s say you have a gene called `COX4I1`. You want to find it in the annotation file.
-
-Run:
-
-```bash
-grep -i "COX4I1" GCF_047663525.1_ASM476635v1_genomic.gff
-```
-
-This will give you lines like:
-
-```
-scaffold_1269   RefSeq  gene    19340   20472   .   +   .   ID=gene-COX4I1;Name=COX4I1
-```
-
-This tells you the gene lives on `scaffold_1269` from position 19340 to 20472.
---- no annotation file for NA malards. Download annotation files for pekin ducks
-# Create a directory for Pekin duck genome
+# Create directory
 mkdir -p pekin_duck_annotation && cd pekin_duck_annotation
 
-# Download the genome sequence
-
-```
+# Download and unzip Pekin duck genome and annotations
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
-
-```
-# Download the annotation file (GenBank format)
-
-```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
-
-```
-# Optional: GFF file (great for tools like BEDTools or gffread)
-
-```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
-
-```
-# Unzip them
-
-```
 gunzip *.gz
-gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
-gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
-gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
+```
 
-```
-#Make direcotry for gbf matches for pekin ducks. run the leep code below to create 74 hits. Do not keep the output gbf hits file in the pekin duck folder. keep it in main directory. output is 74 gff files.
-```
+---
+
+### 🔹 Step 3: Extract GFF Hits for OXPHOS Genes
+```bash
+mkdir -p gff_matches
+
 while read gene; do
-echo "Searching for $gene...";   grep -i -w "$gene" pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> gff_matches/${gene}.gff;
+  echo "Searching for $gene..."
+  grep -i -w "$gene" pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> gff_matches/${gene}.gff
 done < oxphos_gene_list.txt
+
+cd gff_matches
+cat *.gff > ../oxphos_combined.gff
 ```
 
-#combine gff matches of 74 genes.. make sure to check the directory. 
-
+Check the combined file:
+```bash
+wc -l ../oxphos_combined.gff
+head ../oxphos_combined.gff
 ```
-cd oxphos2/gff_matches/
-cat *.gff > oxphos_combined.gff
-```
-# Once the combined file is created to make sure the combined is is in correct format, use the following code.
 
-```
-wc -l oxphos_combined.gff
-head oxphos_combined.gff
-```
-#head output looks like the following picture. It is correct format.
-![Image](https://github.com/user-attachments/assets/0f3720a9-b612-4b45-bf83-38e155ce7482)
+---
 
-# make blast database with the following code. run blastn, preview the results, extract gene location
-```
-makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out nawild_db
-blastn -query oxphos_gene_sequences.fasta \
-  -db nawild_db \
-  -out oxphos_vs_nawild.blastn.out \
-  -evalue 1e-10 \
-  -outfmt 6 \
-  -num_threads 4
-head oxphos_vs_nawild.blastn.out
-cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
+### 🔹 Step 4: Create BED File and Extract Sequences
+```bash
+awk '$3 == "gene" {print $1"	"($4-1)"	"$5"	"$9"	.	"$7}' ../oxphos_combined.gff > oxphos_genes.bed
 
+bedtools getfasta   -fi pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna   -bed oxphos_genes.bed   -s -name   -fo oxphos_gene_sequences.fasta
 
-```
-3output file looks like this after blastn
-https://github.com/NNawshin0/oxphos/issues/3#issue-3007540330
-![Image](https://github.com/user-attachments/assets/4d558a9a-3578-4016-9075-d0919a419c6d)
-
-
-```
-Step 3: Extract gene alignment coordinates
-bash
-Copy
-Edit
-cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
-Extracts key columns:
-
-Query ID (gene)
-
-Subject ID (scaffold)
-
-Start / End coordinates
-
-Sorted and deduplicated to retain unique hits
-
-📍 Step 4: Convert to BED format for sequence extraction or visualization
-bash
-Copy
-Edit
-awk '{start=($3<$4)?$3:$4; end=($3>$4)?$3:$4; print $2"\t"start-1"\t"end"\t"$1}' oxphos_gene_hits_coords.txt > oxphos_blast_hits.bed
-BED format is 0-based and left-to-right → this command ensures that:
-
-Coordinates are correctly ordered
-
-Start position is offset by -1 for BED compatibility
-
-Produces a BED file of all OXPHOS gene matches in the mallard genome
-
-
-
-
-
-
-### 🟢 Extract OXPHOS Gene Sequences from Annotated Pekin Duck Genome
-
-# STEP 1: Generate BED file of OXPHOS gene coordinates from GFF3
-# Only retain entries labeled as "gene" features
-```
-awk '$3 == "gene" {print $1"\t"($4-1)"\t"$5"\t"$9"\t.\t"$7}' oxphos_combined.gff > oxphos_genes.bed
-```
-# STEP 2: Extract DNA sequences using BEDTools and genome FASTA
-# -s ensures strand awareness; -name uses the 4th column in BED for FASTA headers
-```
-bedtools getfasta \
-  -fi ../pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna \
-  -bed oxphos_genes.bed \
-  -s -name \
-  -fo oxphos_gene_sequences.fasta
-```
-# STEP 3 (Optional): Confirm extraction
-# Count how many sequences were extracted
-```
 grep ">" oxphos_gene_sequences.fasta | wc -l
 ```
-🗂️ Expected Output:
--oxphos_genes.bed: coordinates of all OXPHOS genes
--oxphos_gene_sequences.fasta: DNA sequences of those genes, strand-aware
-
-
-
-### 🟢 **Step 4: Extract the DNA sequence of the gene**
-
-There are two easy ways to do this:
-
-#### Option 1: Use `bedtools`
-
-First, make a BED file with all gene coordinates like this:
-
-```
-scaffold_1269   19339   20472   COX4I1
-```
-
-(Remember: BED files start counting from 0, so we subtract 1 from the start position.)
-
-Save that as `oxphos_genes.bed`.
-
-Now extract the DNA:
-
-```bash
-bedtools getfasta -fi GCF_047663525.1_ASM476635v1_genomic.fna -bed oxphos_genes.bed -fo oxphos_genes.fasta
-```
-
-You’ll get a FASTA file with your gene sequences!
 
 ---
 
-#### Option 2: Use `gffread`
-
-You can extract all genes at once if your GFF file has `gene_name` or `ID=` tags.
-
+### 🔹 Step 5: Map to NAwild Genome with BLAST
 ```bash
-gffread -w oxphos_genes.fasta -g GCF_047663525.1_ASM476635v1_genomic.fna GCF_047663525.1_ASM476635v1_genomic.gff
-```
+# Prepare BLAST database
+makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out nawild_db
 
-Then you can just open `oxphos_genes.fasta` and grab the sequences for your 80 genes.
+# Run BLAST
+blastn -query oxphos_gene_sequences.fasta   -db nawild_db   -out oxphos_vs_nawild.blastn.out   -evalue 1e-10   -outfmt 6   -num_threads 4
+
+# Extract useful columns
+cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
+
+# Convert to BED format
+awk '{start=($3<$4)?$3:$4; end=($3>$4)?$3:$4; print $2"\t"start-1"\t"end"\t"$1}' oxphos_gene_hits_coords.txt > oxphos_blast_hits.bed
+```
 
 ---
 
-### 🟢 **Step 5: Double-check your results**
-
-Open the FASTA file in a text editor or use `less`:
-
+### 🔹 Step 6: Design 120mer Probes
 ```bash
-less oxphos_genes.fasta
+# Tile 120mer windows with 60 bp overlap
+bedtools makewindows -b oxphos_blast_hits.bed -w 120 -s 60 > oxphos_120mer_windows.bed
+
+# Extract probe sequences
+bedtools getfasta   -fi GCA_030704485.1_NAwild_v1.0_genomic.fna   -bed oxphos_120mer_windows.bed   -s -name   -fo oxphos_120mer_probes.fasta
+
+# Count total number of probes
+grep ">" oxphos_120mer_probes.fasta | wc -l
 ```
-Would you like a ready-made Bash script to automate these steps? Or help with visualizing where these genes are on the genome?
+
+---
+
+### 🔹 Step 7: Rename Probes for Synthesis
+```bash
+awk 'NR % 2 == 0' oxphos_120mer_probes.fasta > seqs.txt
+seq 1 $(wc -l < seqs.txt) | awk '{printf ">probe_%05d\n", $1}' > headers.txt
+paste -d "\n" headers.txt seqs.txt > oxphos_120mer_probes_synthesis.fasta
+```
+
+---
+
+### 🔹 Step 8: Link Probes to Coordinates (Metadata File)
+```bash
+awk '{print $1"\t"$2"\t"$3"\t"$6}' oxphos_120mer_windows.bed > probe_coords.txt
+paste headers.txt probe_coords.txt > probe_metadata.tsv
+```
+
+---
+
+You now have:
+- `oxphos_120mer_probes_synthesis.fasta`: probes for hybridization
+- `probe_metadata.tsv`: probe ID to genome coordinate table
+- `oxphos_gene_sequences.fasta`: extracted gene sequences
+
