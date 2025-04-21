@@ -150,6 +150,35 @@ head oxphos_combined.gff
 ![Image](https://github.com/user-attachments/assets/0f3720a9-b612-4b45-bf83-38e155ce7482)
 
 
+
+
+### 🟢 Extract OXPHOS Gene Sequences from Annotated Pekin Duck Genome
+
+# STEP 1: Generate BED file of OXPHOS gene coordinates from GFF3
+# Only retain entries labeled as "gene" features
+```
+awk '$3 == "gene" {print $1"\t"($4-1)"\t"$5"\t"$9"\t.\t"$7}' oxphos_combined.gff > oxphos_genes.bed
+```
+# STEP 2: Extract DNA sequences using BEDTools and genome FASTA
+# -s ensures strand awareness; -name uses the 4th column in BED for FASTA headers
+```
+bedtools getfasta \
+  -fi ../pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna \
+  -bed oxphos_genes.bed \
+  -s -name \
+  -fo oxphos_gene_sequences.fasta
+```
+# STEP 3 (Optional): Confirm extraction
+# Count how many sequences were extracted
+```
+grep ">" oxphos_gene_sequences.fasta | wc -l
+```
+🗂️ Expected Output:
+-oxphos_genes.bed: coordinates of all OXPHOS genes
+-oxphos_gene_sequences.fasta: DNA sequences of those genes, strand-aware
+
+
+
 ### 🟢 **Step 4: Extract the DNA sequence of the gene**
 
 There are two easy ways to do this:
