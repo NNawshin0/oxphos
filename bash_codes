@@ -1,0 +1,716 @@
+(repeatmasker_env) nabila@UM-56VF1Z3:~/oxphos2$ history
+    1  python --version
+    2  python3 --version
+    3  conda --version
+    4  python3 --version
+    5  pwd
+    6  ls
+    7  ls -atl
+    8  python --version
+    9  python3 --version
+   10  connda --version
+   11  python3 --version
+   12  connda --version
+   13  conda --version
+   14  python --version
+   15  setx PATH "%PATH%;C:\Users\BOBS\anaconda3;C:\Users\BOBS\anaconda3\Scripts;C:\Users\BOBS\anaconda3\Library\bin" /M
+   16  setx PATH "%PATH%;C:\Users\BOBS\anaconda3;C:\Users\BOBS\anaconda3\Scripts;C:\Users\BOBS\anaconda3\Library\bin" /M
+   17  nano ~/.bashrc
+   18  conda --version
+   19  source ~/.bashrc
+   20  conda --version
+   21  wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
+   22  wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+   23  chmod +x Anaconda3-2024.10-1-Linux-x86_64.sh
+   24  ./Anaconda3-2024.10-1-Linux-x86_64.sh
+   25  source ~/.bashrc
+   26  conda --version
+   27  python3 --version
+   28  pwd
+   29  ls
+   30  cd ..
+   31  ls
+   32  cd nabila/
+   33  mkdir oxphos_project
+   34  ls
+   35  cd
+   36  cd oxphos_project/
+   37  gunzip mallard_genome.fna.gz
+   38  gunzip mallard_annotations.gff.gz
+   39  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/PRJNA991977/mallard_genome.fna.gz
+   40  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+   41  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gff.gz
+   42  ls
+   43  gunzip GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+   44  gunzip GCA_030704485.1_NAwild_v1.0_genomic.gff.gz
+   45  head GCA_030704485.1_NAwild_v1.0_genomic.gbff
+   46  ls -lh
+   47  ls | grep "GCA_030704485"
+   48  ls -lh | grep "GCA_030704485"
+   49  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
+   50  gunzip GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
+   51  ls -lh | grep "GCA_030704485"
+   52  head -n 50 GCA_030704485.1_NAwild_v1.0_genomic.gbff
+   53  grep -E "ND1|ND2|ND3|ND4|ND5|ND6|COX1|COX2|COX3|ATP5A|ATP6|ATP8|SDHB|UQCR" GCA_030704485.1_NAwild_v1.0_genomic.gbff > OXPHOS_genes.gbff
+   54  from Bio import SeqIO
+   55  input_file = "GCA_030704485.1_NAwild_v1.0_genomic.gbff"
+   56  output_file = "mallard_annotations.gff"
+   57  with open(output_file, "w") as out:
+   58  python3 --version
+   59  ls
+   60  ls -lh /home/nabila/oxphos_project/
+   61  python3 ~/oxphos_project/oxphos.py
+   62  pip install biopython
+   63  python3 -c 'import Bio; print("Biopython is installed correctly!")'
+   64  python3 ~/oxphos_project/oxphos.py
+   65  ls
+   66  python3 ~/oxphos_project/oxphos.py
+   67  ls -lh /home/nabila/oxphos_project/
+   68  python3 /home/nabila/oxphos_project/oxphos.py
+   69  ls -lh /home/nabila/oxphos_project/
+   70  ls -lhrt
+   71  python3 ~/oxphos_project/oxphos.py
+   72  ls -lhrt
+   73  ls
+   74  python3 test_seqio.py
+   75  ls
+   76  ls -lhrt
+   77  grep -E "^\s+gene|^\s+CDS" /home/nabila/oxphos_project/GCA_030704485.1_NAwild_v1.0_genomic.gbff | head -20
+   78  ls /home/nabila/oxphos_project/
+   79  cd /home/nabila/oxphos_project
+   80  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gff.gz
+   81  gunzip GCA_030704485.1_NAwild_v1.0_genomic.gff.gz
+   82  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/030/704/485/GCF_030704485.1_NAwild_v1.0/GCF_030704485.1_NAwild_v1.0_genomic.gff.gz
+   83  gunzip GCF_030704485.1_NAwild_v1.0_genomic.gff.gz
+   84  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/850/225/GCF_003850225.1_Anas_platyrhynchos_genomic.gff.gz
+   85  gunzip GCF_003850225.1_Anas_platyrhynchos_genomic.gff.gz
+   86  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/476/345/GCF_015476345.1_ZJU1.0/GCF_015476345.1_ZJU1.0_genomic.gff.gz
+   87  gunzip GCF_015476345.1_ZJU1.0_genomic.gff.gz
+   88  head -20 GCF_015476345.1_ZJU1.0_genomic.gff
+   89  grep -E "gene|CDS" GCF_015476345.1_ZJU1.0_genomic.gff | head -20
+   90  grep -E "COX|ATP5|NDUF|SDH|UQCR" GCF_015476345.1_ZJU1.0_genomic.gff > oxphos_genes.gff
+   91  awk '$3 == "gene" {print $1 "\t" $4 "\t" $5 "\t" $9}' oxphos_genes.gff > oxphos_genes.bed
+   92  bedtools getfasta -fi GCA_030704485.1_NAwild_v1.0_genomic.fna -bed oxphos_genes.bed -fo oxphos_genes.fasta
+   93  sudo apt update && sudo apt install bedtools -y
+   94  bedtools --version
+   95  bedtools getfasta -fi GCA_030704485.1_NAwild_v1.0_genomic.fna -bed oxphos_genes.bed -fo oxphos_genes.fasta
+   96  ls -lh GCA_030704485.1_NAwild_v1.0_genomic.fna
+   97  find ~/ -name "GCA_030704485.1_NAwild_v1.0_genomic.fna"
+   98  bedtools getfasta -fi /home/nabila/oxphos_project/GCA_030704485.1_NAwild_v1.0_genomic.fna -bed /home/nabila/oxphos_project/oxphos_genes.bed -fo /home/nabila/oxphos_project/oxphos_genes.fasta
+   99  grep ">" /home/nabila/oxphos_project/GCA_030704485.1_NAwild_v1.0_genomic.fna
+  100  head -10 /home/nabila/oxphos_project/oxphos_genes.bed
+  101  cd /home/nabila/oxphos_project/
+  102  sed -i 's/NC_051772.1/CM060798.1/g' oxphos_genes.bed
+  103  sed -i 's/NC_051773.1/CM060799.1/g' oxphos_genes.bed
+  104  sed -i 's/NC_051774.1/CM060800.1/g' oxphos_genes.bed
+  105  grep -E 'NC_051772.1|NC_051773.1|NC_051774.1' oxphos_genes.bed
+  106  cp oxphos_genes.bed oxphos_genes.bed.backup
+  107  grep -E 'CM060798.1|CM060799.1|CM060800.1' oxphos_genes.bed
+  108  grep ">" reference_genome.fasta
+  109  bedtools getfasta -fi reference_genome.fasta -bed oxphos_genes.bed -fo extracted_sequences.fasta
+  110  ls -lh
+  111  find /home/nabila/ -type f -name "*.fasta"
+  112  cd /path/to/the/fasta/file/
+  113  bedtools getfasta -fi GCA_030704485.1_NAwild_v1.0_genomic.fna -bed oxphos_genes.bed -fo extracted_sequences.fasta
+  114  mv GCA_030704485.1_NAwild_v1.0_genomic.fna reference_genome.fasta
+  115  bedtools getfasta -fi reference_genome.fasta -bed oxphos_genes.bed -fo extracted_sequences.fasta
+  116  grep ">" reference_genome.fasta
+  117  samtools faidx reference_genome.fasta
+  118  cat reference_genome.fasta.fai
+  119  sed -i 's/CM060799.1/actual_chrom_name_from_fasta/g' oxphos_genes.bed
+  120  samtools faidx reference_genome.fasta
+  121  sudo apt update && sudo apt install samtools -y
+  122  samtools --version
+  123  samtools faidx reference_genome.fasta
+  124  cat reference_genome.fasta.fai
+  125  head -n 50 GCF_015476345.1_ZJU1.0_genomic.gff
+  126  bedtools getfasta -fi reference_genome.fasta -bed oxphos_genes.bed -fo oxphos_extracted.fasta
+  127  grep ">" reference_genome.fasta
+  128  cut -f1 reference_genome.fasta.fai
+  129  cut -f1 oxphos_genes.bed | sort | uniq
+  130  sed -i 's/OLD_CHR_NAME/NEW_CHR_NAME/g' oxphos_genes.bed
+  131  CM060768.1
+  132  CM060769.1
+  133  CM060770.1
+  134  CM060771.1
+  135  CM060772.1
+  136  CM060773.1
+  137  CM060774.1
+  138  CM060775.1
+  139  CM060776.1
+  140  CM060777.1
+  141  CM060778.1
+  142  CM060779.1
+  143  CM060780.1
+  144  CM060781.1
+  145  CM060782.1
+  146  CM060783.1
+  147  CM060798.1
+  148  CM060800.1
+  149  NC_009684.1
+  150  NC_051775.1
+  151  NC_051776.1
+  152  NC_051777.1
+  153  NC_051778.1
+  154  NC_051780.1
+  155  NC_051781.1
+  156  NC_051784.1
+  157  NC_051785.1
+  158  NC_051786.1
+  159  NC_051789.1
+  160  NC_051790.1
+  161  NC_051792.1
+  162  NC_051793.1
+  163  NC_051795.1
+  164  NC_051796.1
+  165  NC_051798.1
+  166  NC_051799.1
+  167  NC_051800.1
+  168  NC_051804.1
+  169  NW_024009682.1
+  170  NW_024010180.1
+  171  NW_024010230.1
+  172  actual_chrom_name_from_fasta
+  173  cat reference_genome.fasta.fai | cut -f1
+  174  CM060798.1    CM060768.1
+  175  CM060800.1    CM060770.1
+  176  NC_009684.1   CM060772.1
+  177  NC_051775.1   CM060773.1
+  178  NC_051776.1   CM060774.1
+  179  NC_051777.1   CM060775.1
+  180  NC_051778.1   CM060776.1
+  181  NC_051780.1   CM060777.1
+  182  NC_051781.1   CM060778.1
+  183  NC_051784.1   CM060779.1
+  184  NC_051785.1   CM060780.1
+  185  NC_051786.1   CM060781.1
+  186  NC_051789.1   CM060782.1
+  187  NC_051790.1   CM060783.1
+  188  awk 'NR==FNR{a[$1]=$2; next} $1 in a {$1=a[$1]}1' chromosome_mapping.txt oxphos_genes.bed > oxphos_genes_fixed.bed
+  189  nano chromosome_mapping.txt
+  190  y
+  191  Y
+  192  nano chromosome_mapping.txt
+  193  ls -lh chromosome_mapping.txt
+  194  awk 'NR==FNR{a[$1]=$2; next} $1 in a {$1=a[$1]}1' chromosome_mapping.txt oxphos_genes.bed > oxphos_genes_fixed.bed
+  195  cut -f1 oxphos_genes_fixed.bed | sort | uniq
+  196  cut -f1 reference_genome.fasta.fai | sort | uniq
+  197  bedtools getfasta -fi reference_genome.fasta -bed oxphos_genes_fixed.bed -fo oxphos_extracted.fasta
+  198  head -n 10 oxphos_genes_fixed.bed
+  199  awk '{print $1, $2, $3}' OFS="\t" oxphos_genes_fixed.bed > oxphos_genes_fixed_corrected.bed
+  200  head -n 10 oxphos_genes_fixed_corrected.bed
+  201  bedtools getfasta -fi reference_genome.fasta -bed oxphos_genes_fixed_corrected.bed -fo oxphos_extracted.fasta
+  202  grep ">" reference_genome.fasta | cut -d ' ' -f1 | sed 's/>//g' > fasta_chromosomes.txt
+  203  cut -f1 oxphos_genes_fixed_corrected.bed | sort | uniq > bed_chromosomes.txt
+  204  comm -3 <(sort fasta_chromosomes.txt) <(sort bed_chromosomes.txt)
+  205  comm -2 -3 <(sort fasta_chromosomes.txt) <(sort bed_chromosomes.txt)
+  206  comm -1 -3 <(sort fasta_chromosomes.txt) <(sort bed_chromosomes.txt)
+  207  comm -3 <(sort fasta_chromosomes.txt) <(sort bed_chromosomes.txt) | wc -l
+  208  comm -3 <(sort fasta_chromosomes.txt) <(sort bed_chromosomes.txt) > missing_chromosomes.txt
+  209  cat missing_chromosomes.txt
+  210  file fasta_chromosomes.txt bed_chromosomes.txt
+  211  head fasta_chromosomes.txt bed_chromosomes.txt
+  212  samtools faidx genome.fasta $(cat missing_chromosomes.txt) > missing_sequences.fasta
+  213  grep -F -f fasta_chromosomes.txt bed_chromosomes.txt > filtered_bed.txt
+  214  cat missing_chromosomes.txt
+  215  ls -lh genome.fasta
+  216  find ~/ -name "genome.fasta"
+  217  find ~/ -name "genome.fasta"
+  218  ls
+  219  find ~/ -name "genome.fasta"
+  220  find ~/ -name ".fasta"
+  221  find ~/ -type f -name "*.fasta"
+  222  find ~/ -type f -name "*.fa"
+  223  find ~/ -type f -name "*.gz"
+  224  mv /home/nabila/oxphos_project/reference_genome.fasta /home/nabila/oxphos_project/genome.fasta
+  225  ls -lh /home/nabila/oxphos_project/genome.fasta
+  226  cd ~/oxphos_project
+  227  samtools faidx genome.fasta
+  228  samtools faidx genome.fasta $(cat missing_chromosomes.txt) > missing_sequences.fasta
+  229  head -n 20 missing_sequences.fasta
+  230  grep ">" missing_sequences.fasta
+  231  grep ">" genome.fasta
+  232  grep "NC_051" genome.fasta
+  233  cat -A missing_chromosomes.txt
+  234  sed -i 's/\r$//' missing_chromosomes.txt  # Remove Windows line endings
+  235  grep ">" missing_sequences.fasta
+  236  cat genome.fasta.fai | grep NC_051792.1
+  237  rm genome.fasta.fai  # Remove the old index
+  238  samtools faidx genome.fasta  # Re-index the genome
+  239  samtools faidx genome.fasta $(cat missing_chromosomes.txt) > missing_sequences.fasta
+  240  grep ">" genome.fasta | grep NC_051792.1
+  241  cat -A genome.fasta | grep "NC_051792.1"
+  242  grep ">" genome.fasta
+  243  cat -A genome.fasta | grep ">"
+  244  sed -i 's/ .*//' genome.fasta
+  245  rm genome.fasta.fai
+  246  samtools faidx genome.fasta
+  247  samtools faidx genome.fasta $(cat missing_chromosomes.txt) > missing_sequences.fasta
+  248  grep "NC_051792.1" genome.fasta
+  249  cat -A missing_chromosomes.txt
+  250  sed -i 's/\r$//' missing_chromosomes.txt  # Remove Windows-style line endings
+  251  samtools faidx genome.fasta
+  252  samtools faidx genome.fasta NC_051792.1 > extracted_sequence.fasta
+  253  # Create project directory
+  254  mkdir OXPHOS_project
+  255  cd OXPHOS_project
+  256  # Create subdirectories
+  257  mkdir raw_data reference genome_annotation results scripts
+  258  # Move genome and annotation files into respective folders
+  259  mv ~/Downloads/GCA_030704485.1.fna reference/
+  260  mv ~/Downloads/GCA_015476345.1.gff genome_annotation/
+  261  # Move genome sequence file
+  262  mv ~/oxphos_project/GCA_030704485.1.NAwild_v1.0_genomic.fna reference/
+  263  # Move genome annotation file
+  264  mv ~/oxphos_project/GCF_015476345.1.ZJU1.0_genomic.gff genome_annotation/
+  265  ls -lh reference/
+  266  ls -lh genome_annotation/
+  267  cd
+  268  ls
+  269  ls -- lhrt
+  270  # Create project directory
+  271  mkdir OXPHOS_project
+  272  cd OXPHOS_project
+  273  # Create subdirectories
+  274  mkdir raw_data reference genome_annotation results scripts
+  275  # Move genome and annotation files into respective folders
+  276  mv ~/Downloads/GCA_030704485.1.fna reference/
+  277  mv ~/Downloads/GCA_015476345.1.gff genome_annotation/
+  278  ls
+  279  cd jrf_pfam/
+  280  cst *fasta ->all_proteins.fasta
+  281  cat *fasta ->all_proteins.fasta
+  282  cat *.fasta > all_proteins.fasta
+  283  ls
+  284  clear
+  285  cat *.fasta > all_proteins.fasta
+  286  ls
+  287  ls -atl
+  288  clear
+  289  # Update package list
+  290  sudo apt update
+  291  sudo apt install t-coffee
+  292  tcoffee -version
+  293  t_coffee -version
+  294  tcoffee -in all_proteins.fasta
+  295  t-coffee -in all_proteins.fasta
+  296  t_coffee -in all_proteins.fasta
+  297  tcoffee -in all_proteins.fasta -method muscle -tree
+  298  t_coffee -in all_proteins.fasta -method muscle -tree
+  299  t_coffee -in all_proteins.fasta -method muscle
+  300  tcoffee -in all_proteins.fasta -method clustalw
+  301  t_coffee -in all_proteins.fasta -method clustalw
+  302  ls -atl
+  303  t_coffee -in  all_proteins_filtered_clean.fasta -method clustalw
+  304  t_coffee -in all_proteins.fasta -method t_coffee
+  305  t_coffee -in  all_proteins_filtered_clean.fasta -method Mfast_pair
+  306  ls
+  307  ls -- lsrt
+  308  ls -- lhrt
+  309  ls
+  310  mv ~/Downloads/GCA_015476345.1.gff genome_annotation/
+  311  cd OXPHOS_project
+  312  history | grep ".sh"
+  313  cd
+  314  ls
+  315  pwd
+  316  cd
+  317  ls
+  318  pwd
+  319  cd /home/nabila/oxphos_project
+  320  pwd
+  321  ls
+  322  apt-get install ncbi-blast+
+  323  sudo apt-get install ncbi-blast+
+  324  blast
+  325  blastx
+  326  ls
+  327  grep -c ">" oxphos_extracted.fasta
+  328  sudo apt update
+  329  sudo apt install subversion perl python bioperl
+  330  sudo apt install exonerate
+  331  svn checkout https://svn.code.sf.net/p/ratt/code/ ratt_code
+  332  sudo apt update
+  333  sudo apt install subversion -y
+  334  svn --version
+  335  svn checkout https://svn.code.sf.net/p/ratt/code/ ratt_code
+  336  cd ratt_code
+  337  ls -lh
+  338  chmod +x start.ratt.sh main.ratt.pl
+  339  ./start.ratt.sh
+  340  export RATT_HOME=~/oxphos_project/ratt_code
+  341  echo $RATT_HOME
+  342  export PATH=$RATT_HOME:$PATH
+  343  echo $PATH
+  344  echo 'export RATT_HOME=~/oxphos_project/ratt_code' >> ~/.bashrc
+  345  echo 'export PATH=$RATT_HOME:$PATH' >> ~/.bashrc
+  346  source ~/.bashrc
+  347  ./start.ratt.sh
+  348  # Create a directory for Pekin duck annotation
+  349  mkdir -p pekin_duck_annotation
+  350  cd pekin_duck_annotation
+  351  # Set the NCBI assembly accession
+  352  ASSEMBLY="GCF_015476345.1"
+  353  # Download the genome sequence (FASTA)
+  354  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/476/345/${ASSEMBLY}/${ASSEMBLY}_genomic.fna.gz
+  355  # Download the annotation file (GFF3)
+  356  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/476/345/${ASSEMBLY}/${ASSEMBLY}_genomic.gff.gz
+  357  # Download the CDS sequences (coding sequences)
+  358  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/476/345/${ASSEMBLY}/${ASSEMBLY}_cds_from_genomic.fna.gz
+  359  # Download the protein sequences (FAA)
+  360  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/476/345/${ASSEMBLY}/${ASSEMBLY}_protein.faa.gz
+  361  # Unzip all downloaded files
+  362  gunzip *.gz
+  363  cd
+  364  ls
+  365  history
+  366  cat oxphos_gene_list.txt
+  367  echo -e "ND1\nCOX1\nCYTB\nATP6\nNDUFA1\nNDUFB4\nSDHA\nUQCRC1\nCOX4I1\nATP5F1A" > oxphos_gene_list.txt
+  368  cat oxphos_gene_list.txt
+  369  GFF_FILE="GCF_015476345.1_genomic.gff"
+  370  OXPHOS_GENES="oxphos_gene_list.txt"
+  371  OUT_FILE="oxphos_annotations.gff"
+  372  grep -F -f ${OXPHOS_GENES} ${GFF_FILE} > ${OUT_FILE}
+  373  find ~/ -name "GCF_015476345.1_genomic.gff"
+  374  cp /path/to/GCF_015476345.1_genomic.gff ~/oxphos_project/
+  375  find ~/ -name "GCF_015476345.1_genomic.gff"
+  376  cp GCF_015476345.1_genomic.gff ~/oxphos_project/
+  377  ls
+  378  cd
+  379  ls
+  380  # Set the GFF file and gene list file
+  381  GFF_FILE="GCF_015476345.1_genomic.gff"
+  382  OXPHOS_GENES="oxphos_gene_list.txt"  # A file containing gene names, one per line
+  383  OUT_FILE="oxphos_annotations.gff"
+  384  # Extract annotations from GFF for OXPHOS genes
+  385  grep -F -f ${OXPHOS_GENES} ${GFF_FILE} > ${OUT_FILE}
+  386  ls
+  387  # Set the GFF file and gene list file
+  388  GFF_FILE="GCF_015476345.1_genomic.gff"
+  389  OXPHOS_GENES="oxphos_gene_list.txt"  # A file containing gene names, one per line
+  390  OUT_FILE="oxphos_annotations.gff"
+  391  # Extract annotations from GFF for OXPHOS genes
+  392  grep -F -f ${OXPHOS_GENES} ${GFF_FILE} > ${OUT_FILE}
+  393  nano oxphos_gene_list.txt
+  394  sudo apt update && sudo apt install -y     wget curl git unzip     build-essential     samtools bedtools     python3 python3-pip     blast+     hmmer     bioawk
+  395  sudo apt update && sudo apt install -y     wget curl git unzip     build-essential     samtools bedtools     python3 python3-pip     blast+     hmmer     bioawk
+  396  sudo apt install ncbi-blast+
+  397  blastn -version
+  398  makeblastdb -version
+  399  sudo apt update && sudo apt install -y     wget curl git unzip     build-essential     samtools bedtools     python3 python3-pip     blast+     hmmer     bioawk
+  400  sudo apt update && sudo apt install -y     wget curl git unzip     build-essential     samtools bedtools     python3 python3-pip     ncbi-blast+     hmmer     bioawk
+  401  mkdir -p ~/oxphos_project/genome
+  402  cd ~/oxphos_project/genome
+  403  # Download the genome FASTA and GFF3 files for GCA_030704485.1
+  404  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+  405  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gff.gz
+  406  >XP_027322644.2 cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Anas platyrhynchos]
+  407  MLASRAFSLLGRRALSTSICLRAGHGAGVVKAE...
+  408  ...(rest of the sequence)...
+  409  mkdir -p ~/oxphos_project/oxphos_refs
+  410  nano ~/oxphos_project/oxphos_refs/COX4I1.faa
+  411  cd ~/oxphos_project/genome
+  412  makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out mallard_genome_db
+  413  ls ~/oxphos_project/genome
+  414  gunzip ~/oxphos_project/genome/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+  415  GCA_030704485.1_NAwild_v1.0_genomic.fna
+  416  ls -lh GCA_030704485.1_NAwild_v1.0_genomic.fna
+  417  head GCA_030704485.1_NAwild_v1.0_genomic.fna
+  418  makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out mallard_genome_db
+  419  mkdir -p ~/oxphos_project/blast_results
+  420  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-10 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  421  cat ~/oxphos_project/oxphos_refs/COX4I1.faa
+  422  nano ~/oxphos_project/oxphos_refs/COX4I1.faa
+  423  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-10 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  424  nano ~/oxphos_project/oxphos_refs/COX4I1.faa
+  425  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-10 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  426  cat -A ~/oxphos_project/oxphos_refs/COX4I1.faa
+  427  nano ~/oxphos_project/oxphos_refs/COX4I1.faa
+  428  cat -A ~/oxphos_project/oxphos_refs/COX4I1.faa
+  429  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-10 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  430  wc -l ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  431  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-3 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  432  cat > ~/oxphos_project/oxphos_refs/COX4I1.faa <<EOL
+  433  >XP_027322644.2 COX4I1 [Anas platyrhynchos]
+  434  MLASRAFSLLGRRALSTSICLRAGHGAGVVKAEFAEMLVIIVGAFAGVGTALAIVTNRLRRRVYEEYDDVWKEVKNNDKSQMEKSEEEIIRRRMLLLLLPLLVGVAVATAFLLTAYSRQVQKPNSLQWTYNITDAEKAYDFYFPDWIKLGLGLAMVGVILQLQASEYVAKRRTDSEFVFTGLVNTHLDMKITKGVRAGLFGIIEEMLTILPAIIYGRDMLLLMTFLYFTFAAAWFIINST
+  435  EOL
+  436  tblastn -query ~/oxphos_project/oxphos_refs/COX4I1.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-5 -outfmt 6         -out ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  437  head ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  438  wc -l ~/oxphos_project/blast_results/COX4I1_tblastn.tsv
+  439  cat > ~/oxphos_project/oxphos_refs/GAPDH.faa <<EOL
+  440  >XP_013087871.1 GAPDH [Anas platyrhynchos]
+  441  MSSSVYLLSASKGGIGRAQNIIPASTGAAKAVGKVIPELNGKLTGMAFRVPTANVSVVDLTCRLEKPAKYDDIKKVVKQASEGPLKGILGYTEHQVVSSDFNSDTHSSTIYASGRTTGYNQLLRIEEELGKNLKGISEGEMKGIVDALGSGYTDANKNKGIIYTTTGTFKTVDFLKGGAQAIINQIIAAPTDHSHLITANLKDGTDYVMTVVGVNEVIEKVIKEQGSKVEFTRNCICDSVIVSGPKVSKSVFRTTDVTIQPVTDHAAIKAGTVLPEVSGYPKNIVSNASCTTNCLAPLAKVIHDNFGIVEGLMTTVHAITATQKTVDGPSGKLVLGVSFNVVLTKILQPIMTDENIVSVVRTQLDSLKAAQTLEKVRALV
+  442  EOL
+  443  tblastn -query ~/oxphos_project/oxphos_refs/GAPDH.faa         -db ~/oxphos_project/genome/mallard_genome_db         -evalue 1e-5 -outfmt 6         -out ~/oxphos_project/blast_results/GAPDH_tblastn.tsv
+  444  wc -l ~/oxphos_project/blast_results/GAPDH_tblastn.tsv
+  445  cd ~/oxphos_project/blast_results
+  446  head GAPDH_tblastn.tsv
+  447  awk 'NR==1 {
+  448      start = ($9 < $10 ? $9 : $10);
+  449      end = ($9 > $10 ? $9 : $10);
+  450      strand = ($9 < $10 ? "+" : "-");
+  451      print $2 "\t" start-1 "\t" end "\tGAPDH_hit\t.\t" strand;
+  452  }' GAPDH_tblastn.tsv > GAPDH.bed
+  453  bedtools getfasta -fi ~/oxphos_project/genome/GCA_030704485.1_NAwild_v1.0_genomic.fna                   -bed GAPDH.bed                   -name -fo GAPDH_genomic.fasta
+  454  cp GAPDH_genomic.fasta ~/oxphos_project/oxphos_genes.fasta
+  455  #!/bin/bash
+  456  # === CONFIGURATION ===
+  457  GENOME=~/oxphos_project/genome/GCA_030704485.1_NAwild_v1.0_genomic.fna
+  458  DB=~/oxphos_project/genome/mallard_genome_db
+  459  QUERY_DIR=~/oxphos_project/oxphos_refs
+  460  BLAST_DIR=~/oxphos_project/blast_results
+  461  OUT_FASTA=~/oxphos_project/oxphos_genes.fasta
+  462  # === START ===
+  463  mkdir -p "$BLAST_DIR"
+  464  > "$OUT_FASTA"  # empty/create the output file
+  465  # === LOOP OVER ALL .faa FILES IN QUERY DIRECTORY ===
+  466  for faa in "$QUERY_DIR"/*.faa; do     gene=$(basename "$faa" .faa);     echo "Processing $gene...";      tblastn -query "$faa" -db "$DB" -evalue 1e-5 -outfmt 6 -out "$BLAST_DIR/${gene}_tblastn.tsv";
+  467      if [[ ! -s "$BLAST_DIR/${gene}_tblastn.tsv" ]]; then         echo "  No hits found for $gene.";         continue;     fi;
+  468      awk 'NR==1 {
+  469          start = ($9 < $10 ? $9 : $10);
+  470          end = ($9 > $10 ? $9 : $10);
+  471          strand = ($9 < $10 ? "+" : "-");
+  472          print $2 "\t" start-1 "\t" end "\t" FILENAME "_hit\t.\t" strand;
+  473      }' "$BLAST_DIR/${gene}_tblastn.tsv" > "$BLAST_DIR/${gene}.bed";
+  474      bedtools getfasta -fi "$GENOME" -bed "$BLAST_DIR/${gene}.bed" -name >> "$OUT_FASTA"; done
+  475  echo "✅ All done. Output saved to $OUT_FASTA"
+  476  #!/bin/bash
+  477  # === CONFIGURATION ===
+  478  GENOME=~/oxphos_project/genome/GCA_030704485.1_NAwild_v1.0_genomic.fna
+  479  DB=~/oxphos_project/genome/mallard_genome_db
+  480  QUERY_DIR=~/oxphos_project/oxphos_refs
+  481  BLAST_DIR=~/oxphos_project/blast_results
+  482  OUT_FASTA=~/oxphos_project/oxphos_genes.fasta
+  483  # === START ===
+  484  mkdir -p "$BLAST_DIR"
+  485  > "$OUT_FASTA"  # empty/create the output file
+  486  # === LOOP OVER ALL .faa FILES IN QUERY DIRECTORY ===
+  487  for faa in "$QUERY_DIR"/*.faa; do     gene=$(basename "$faa" .faa);     echo "Processing $gene...";      tblastn -query "$faa" -db "$DB" -evalue 1e-5 -outfmt 6 -out "$BLAST_DIR/${gene}_tblastn.tsv";
+  488      if [[ ! -s "$BLAST_DIR/${gene}_tblastn.tsv" ]]; then         echo "  No hits found for $gene.";         continue;     fi;
+  489      awk 'NR==1 {
+  490          start = ($9 < $10 ? $9 : $10);
+  491          end = ($9 > $10 ? $9 : $10);
+  492          strand = ($9 < $10 ? "+" : "-");
+  493          print $2 "\t" start-1 "\t" end "\t" FILENAME "_hit\t.\t" strand;
+  494      }' "$BLAST_DIR/${gene}_tblastn.tsv" > "$BLAST_DIR/${gene}.bed";
+  495      bedtools getfasta -fi "$GENOME" -bed "$BLAST_DIR/${gene}.bed" -name >> "$OUT_FASTA"; done
+  496  echo "✅ All done. Output saved to $OUT_FASTA"
+  497  nano ~/oxphos_project/extract_oxphos_genes.sh
+  498  chmod +x ~/oxphos_project/extract_oxphos_genes.sh
+  499  ~/oxphos_project/extract_oxphos_genes.sh
+  500  nano ~/oxphos_project/extract_oxphos_genes.sh
+  501  ~/oxphos_project/extract_oxphos_genes.sh
+  502  less ~/oxphos_project/oxphos_genes.fasta
+  503  nano ~/oxphos_project/tile_probes.sh
+  504  chmod +x ~/oxphos_project/tile_probes.sh
+  505  ~/oxphos_project/tile_probes.sh
+  506  cat > ~/oxphos_project/oxphos_refs/NDUFA1.faa <<EOL
+  507  >XP_013092036.1 NDUFA1 [Anas platyrhynchos]
+  508  MALIRQLTRIKRGLNVLRTVYTPSSGRQKVSYEDMVSMLRDLVNDFRGAGNVVRRLEAFTAGQTLVAATLSYTLVTSVGFAAGIVGLYVSWDTEKVL
+  509  EOL
+  510  cat > ~/oxphos_project/oxphos_refs/SDHA.faa <<EOL
+  511  >XP_013089013.1 SDHA [Anas platyrhynchos]
+  512  MASRSLRGRRAEGSRLGLRLWAGPRGTPEARRRHRLRAWVAGAWGLRAGPAAGLRADRRRPRHPPPGAHLVAVASGGAGRGPGVGVGGRPVLCLVGNGSGGYVAAALRAAGADLLNSPVYIASKSTAGGAGGRAVIPAAAGGRRTELVDA
+  513  EOL
+  514  cat > ~/oxphos_project/oxphos_refs/UQCRC1.faa <<EOL
+  515  >XP_013087445.1 UQCRC1 [Anas platyrhynchos]
+  516  MAATGPRLVRLVLAALAVSWSLRAGGQLETLKNIPTLRQSTPAEQQRLVRALMNLQPDRGIYAGKTVLTIRERLFGTGTETVKAVPQFLTSYEKRE
+  517  EOL
+  518  cat > ~/oxphos_project/oxphos_refs/COX5A.faa <<EOL
+  519  >XP_013086215.1 COX5A [Anas platyrhynchos]
+  520  MADQVSGKYYTSQVNMLKEKMKDYSMKFGSKKTSFFVQAPALVKTVLFSKDKKLQAKVAAGSRTYAYEHNEEVKELRKLFFKETTKK
+  521  EOL
+  522  cat > ~/oxphos_project/oxphos_refs/ATP5F1A.faa <<EOL
+  523  >XP_013088878.1 ATP5F1A [Anas platyrhynchos]
+  524  MATATTAQMRLLLTGGMAGRTKDSYLSPLEETPKKARVEFEKNKVLESFGVAKATKVIDQRESVSKILFKEVVPELNKIYYNRLKDKVDDGVMALLGKAGVLELAQGPNVPVGKIAIKGEEI
+  525  EOL
+  526  ~/oxphos_project/extract_oxphos_genes.sh
+  527  grep ">" ~/oxphos_project/oxphos_genes.fasta
+  528  cat > ~/oxphos_project/oxphos_refs_cds/NDUFA1.fna <<EOL
+  529  >XM_013236582.2 NDUFA1 CDS [Anas platyrhynchos]
+  530  ATGGCCCTGATCCGGCAACTGACACGGATCAAGCGAGGCCTGAATGTGCTGAGAACCGTTTACACGCCATCAGGGCAGGCAGAGTCTTACGAAGATATGGTGAGCATGTTGAGGGACCTGGTTAATGACTTTAGAGGTGCTGGGAATGTCGTCCGGCGCCTGGAGGCCTTTACAGCGGGTCAAACATTAGTCGCCACCCTGTCTTACACTCTGTAACCTCTGTGGGCTTCGCGGCGGGTATAGTCGGGACTATGTGAGAAAGGTATTG
+  531  EOL
+  532  mkdir -p ~/oxphos_project/oxphos_refs_cds
+  533  cat > ~/oxphos_project/oxphos_refs_cds/NDUFA1.fna <<EOL
+  534  >XM_013236582.2 NDUFA1 CDS [Anas platyrhynchos]
+  535  ATGGCCCTGATCCGGCAACTGACACGGATCAAGCGAGGCCTGAATGTGCTGAGAACCGTTTACACGCCATCAGGGCAGGCAGAGTCTTACGAAGATATGGTGAGCATGTTGAGGGACCTGGTTAATGACTTTAGAGGTGCTGGGAATGTCGTCCGGCGCCTGGAGGCCTTTACAGCGGGTCAAACATTAGTCGCCACCCTGTCTTACACTCTGTAACCTCTGTGGGCTTCGCGGCGGGTATAGTCGGGACTATGTGAGAAAGGTATTG
+  536  EOL
+  537  cat > ~/oxphos_project/oxphos_refs_cds/SDHA.fna <<EOL
+  538  >XM_013233484.2 SDHA CDS [Anas platyrhynchos]
+  539  ATGGCCTCCCGCTCCCTTACGCGGAGACGCGGCCGGCTGGGACTCGTCTGGGCATTGTGGCCGGCCCCGGGCACGCCTGAAGCCCGCCTGGCGCCGCCTGGGGCAGCCCGGCGCAGGCCTCGGCTGATCGAGGGAGCGGCAGCGTGGAGCCCCGGGGGCAGCCCTGCGGCCGCGGCTGGAGCTCCGGCGGCACCCGCAGGCAGGCGCCGGTGCCGGCGGCGCTCGGCCGCCGGTGCAGGCAGCGGCGCGGAGTGGCGGCCGAGTGGGCCTGCCGCCGCCTGGCCTGCGGAGGCGGCCGAGGCGCGGGCGAGTGGGAGGAGGCGCGGCCGGAGGAGGAGTGCAGCAGAGCTGGGGCGGGCCTGGTGCCGGAGCGCCGCGCGGCCGAGGCCTGGGCGCTGCGGCTGGGCGGAGAGTGACCTGCAGCTTCTACGCCAGCTGAGCAAGTCCACCGCTGGAGGAGGGTGCGGGTGCGGCCGCGCCGCCGGGGCGCGCGCCGCGTGATCCCAGCGGCTGCCGGGGGCGCGCCGGAACCGAAGTTAGTCGATG
+  540  EOL
+  541  cat > ~/oxphos_project/oxphos_refs_cds/COX5A.fna <<EOL
+  542  >XM_013230949.2 COX5A CDS [Anas platyrhynchos]
+  543  ATGGCTGATCAGGTTTCAGGGAAGTACTACACCTCTCAGGTCAACATGCTGAAGGAGAAGATGAAGGACTACTCAATGAAGTTTGGGTCCAAAAAGACATCGTTCTTCGTTCAGGCGCCAGCCTCTGGTCAAGACTGTGTTGTTCAGGAACAAGAAGCTGCAAGGTCGCCGCGGGTAGCCGCACATATGCTTACGAGCACAACGAGGAGGTGAAGGAGCTGAGGAAGCTGTTCTTCAAGGAGACCACTAAAAA
+  544  EOL
+  545  cat > ~/oxphos_project/oxphos_refs_cds/UQCRC1.fna <<EOL
+  546  >XM_013232215.2 UQCRC1 CDS [Anas platyrhynchos]
+  547  ATGGCCGCGACGGGCCGGCTGGTTCGGCTGGTCCTGGCGGCAGCTGGCCGCGGGGCTGCCAGAGACCCTCAAGAACATCCCCACACTGCGGCAAAGCACACCGGCTGAGCAGCAGAGGCAGAGGCTGGTCGCGGCCCTGATGAACCTGCAGCCTGACCGCGGGCATCTATGCCGGCAAGACAGTCCTCACCATCCGCGAGCGCCTCTTCGGTACCGGCACCGAGACCGTGAAGGCAGTTCCTCAATTCCTTACAAGCTACGAGAAGAGGAG
+  548  EOL
+  549  cat > ~/oxphos_project/oxphos_refs_cds/ATP5F1A.fna <<EOL
+  550  >XM_013234985.2 ATP5F1A CDS [Anas platyrhynchos]
+  551  ATGGCTACCGCGACCACCGCAGATGCGGCTCCTCCTGACCGGAGGCATGGCTGGCAGGACCAGGAAGACATACCTCTCTCCACTGGAAGAGACCCAAAAGAAAGCGCGCGTGGAGTTTGAGAAGAACAAAGTGCTAGAGAGCTTTGGCGTGGCCAAGGCGACAAAGTCATCGACCAGAGGGAGTCAGTCAAAATTCTGTTCAAGGAGGTGGTGCCAGAGCTGAACAAAATCTACTATAACAGGCTCAAGGATAAGGTGGATGATGGCGTGGATGGCCTGGGCAAGGCGGTGTGCTGGAGCTGGCGCAAGGCCCCAATGTGCCAGTTGGGAAGATTGCAATCAAGGGGGAAGAGGAAATCG
+  552  EOL
+  553  #!/bin/bash
+  554  # === CONFIG ===
+  555  GENOME=~/oxphos_project/genome/GCA_030704485.1_NAwild_v1.0_genomic.fna
+  556  DB=~/oxphos_project/genome/mallard_genome_db
+  557  QUERY_DIR=~/oxphos_project/oxphos_refs_cds
+  558  BLAST_DIR=~/oxphos_project/blast_results_cds
+  559  OUT_FASTA=~/oxphos_project/oxphos_genes_cds.fasta
+  560  mkdir -p "$BLAST_DIR"
+  561  > "$OUT_FASTA"
+  562  # === LOOP OVER CDS FILES ===
+  563  for fna in "$QUERY_DIR"/*.fna; do     gene=$(basename "$fna" .fna);     echo "Processing $gene...";      blastn -query "$fna" -db "$DB" -evalue 1e-5 -outfmt 6 -out "$BLAST_DIR/${gene}_blastn.tsv";      if [[ ! -s "$BLAST_DIR/${gene}_blastn.tsv" ]]; then         echo "  No hits found for $gene.";         continue;     fi;      awk 'NR==1 {
+  564          start = ($9 < $10 ? $9 : $10);
+  565          end = ($9 > $10 ? $9 : $10);
+  566          strand = ($9 < $10 ? "+" : "-");
+  567          print $2 "\t" start-1 "\t" end "\t" FILENAME "_hit\t.\t" strand;
+  568      }' "$BLAST_DIR/${gene}_blastn.tsv" > "$BLAST_DIR/${gene}.bed";      bedtools getfasta -fi "$GENOME" -bed "$BLAST_DIR/${gene}.bed" -name >> "$OUT_FASTA"; done
+  569  echo "✅ Done. Results in $OUT_FASTA"
+  570  nano ~/oxphos_project/extract_oxphos_genes_cds.sh
+  571  chmod +x ~/oxphos_project/extract_oxphos_genes_cds.sh
+  572  ~/oxphos_project/extract_oxphos_genes_cds.sh
+  573  CM060768.1:116869608-116869719
+  574  cd ~/oxphos_project/genome
+  575  samtools faidx GCA_030704485.1_NAwild_v1.0_genomic.fna CM060768.1 > CM060768.1.fna
+  576  makeblastdb -in CM060768.1.fna -dbtype nucl -out scaffold_CM060768_db
+  577  blastn -query ~/oxphos_project/oxphos_refs_cds/NDUFA1.fna        -db scaffold_CM060768_db        -evalue 1e-3 -outfmt 6        -out blast_NDUFA1_CM060768.tsv
+  578  wc -l blast_NDUFA1_CM060768.tsv
+  579  ~/oxphos_project/annotated_duck/
+  580  cd
+  581  ls
+  582  mkdir -p ~/oxphos_project/annotated_duck
+  583  cd ~/oxphos_project/annotated_duck
+  584  # Genomic FASTA
+  585  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_Anas_zonorhyncha/GCF_047663525.1_Anas_zonorhyncha_genomic.fna.gz
+  586  # Annotation (GFF3)
+  587  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_Anas_zonorhyncha/GCF_047663525.1_Anas_zonorhyncha_genomic.gff.gz
+  588  cd ~/oxphos_project/annotated_duck
+  589  # Download corrected genome FASTA and GFF files
+  590  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_RNA_ASM476635v1/GCF_047663525.1_RNA_ASM476635v1_genomic.fna.gz
+  591  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_RNA_ASM476635v1/GCF_047663525.1_RNA_ASM476635v1_genomic.gff.gz
+  592  gunzip GCF_047663525.1_RNA_ASM476635v1_genomic.fna.gz
+  593  gunzip GCF_047663525.1_RNA_ASM476635v1_genomic.gff.gz
+  594  cd ~/oxphos_project/annotated_duck
+  595  # Download genome FASTA
+  596  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.fna.gz
+  597  # Download annotation GFF3
+  598  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.gff.gz
+  599  cd
+  600  pwd
+  601  mkdir
+  602  mkdir oxphos2
+  603  cd oxphos2/
+  604  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.fna.gz
+  605  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+  606  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/030/704/485/GCA_030704485.1_NAwild_v1.0/GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
+  607  gunzip GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+  608  gunzip GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz
+  609  gunzip GCA_030704485.1_NAwild_v1.0_genomic.fna.gz
+  610  gunzip ‘GCA_030704485.1_NAwild_v1.0_genomic.gbff.gz’
+  611  ls
+  612  ls -atl
+  613  ls -lh GCA_030704485.1_NAwild_v1.0_genomic.*
+  614  while read gene; do   grep -i "$gene" GCA_030704485.1_NAwild_v1.0_genomic.gbff; done < oxphos_gene_list.txt
+  615  while read gene; do   grep -i "$gene" GCA_030704485.1_NAwild_v1.0_genomic.gbff; done < oxphos_gene_list.txt
+  616  while read gene; do   grep -i "$gene" GCA_030704485.1_NAwild_v1.0_genomic.gbff; done < oxphos_gene_list.txt
+  617  ls
+  618  cat oxphos_gene_list.txt
+  619  while read gene; do grep -i "$gene" GCA_030704485.1_NAwild_v1.0_genomic.gbff done < oxphos_gene_list.txt > oxphos_grepped_matches.txt;
+  620  while read gene; do grep -i "$gene" GCA_030704485.1_NAwild_v1.0_genomic.gbff; done < oxphos_gene_list.txt > oxphos_grepped_matches.txt
+  621  ls
+  622  grep -i '/gene="NDUFA6"' GCA_030704485.1_NAwild_v1.0_genomic.gbff
+  623  grep -i "/gene="COX1"" GCA_030704485.1_NAwild_v1.0_genomic.gbff
+  624  grep -i "/gene=" GCA_030704485.1_NAwild_v1.0_genomic.gbff
+  625  grep -i "/product=" GCA_030704485.1_NAwild_v1.0_genomic.gbff | head -n 20
+  626  less GCA_030704485.1_NAwild_v1.0_genomic.gbff
+  627  # Create a directory for Pekin duck genome
+  628  mkdir -p pekin_duck_annotation && cd pekin_duck_annotation
+  629  # Download the genome sequence
+  630  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
+  631  # Download the annotation file (GenBank format)
+  632  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
+  633  # Optional: GFF file (great for tools like BEDTools or gffread)
+  634  wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
+  635  gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
+  636  gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
+  637  gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
+  638  ls -lh
+  639  mkdir -p oxphos_gff_hits
+  640  while read gene; do   grep -i -w "$gene" GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> oxphos_gff_hits/${gene}.gff; done < oxphos_gene_list.txt
+  641  cat oxphos_gff_hits/*.gff > oxphos_combined.gff
+  642  cd
+  643  ls
+  644  cd oxphos2/
+  645  ls
+  646  ls pekin_duck_annotation/
+  647  ls
+  648  while read gene; do   echo "Searching for $gene...";   grep -i -w "$gene" pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> gff_matches/${gene}.gff; done < oxphos_gene_list.txt
+  649  cat gff_matches/*.gff > oxphos_combined.gff
+  650  cd
+  651  ls
+  652  pwd
+  653  cd oxphos2/
+  654  cd gff_matches/
+  655  ls
+  656  cat gff_matches/*.gff > oxphos_combined.gff
+  657  cat *.gff > oxphos_combined.gff
+  658  ls
+  659  cd .
+  660  cd ../ ..
+  661  cd ..
+  662  cd oxphos2/gff_matches/
+  663  wc -l oxphos_combined.gff
+  664  head oxphos_combined.gff
+  665  awk '$3 == "gene" {print $1"\t"($4-1)"\t"$5"\t"$9"\t.\t"$7}' oxphos_combined.gff > oxphos_genes.bed
+  666  ls
+  667  ls -atl
+  668  head oxphos_genes.bed
+  669  bedtools getfasta -fi ../pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna -bed oxphos_genes.bed -s -name -fo oxphos_gene_sequences.fasta
+  670  ls
+  671  ls -atl
+  672  grep ">" oxphos_gene_sequences.fasta | wc -l
+  673  head oxphos_gene_sequences.fasta
+  674  makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out nawild_db
+  675  cd oxphos2
+  676  ls
+  677  cd ..
+  678  makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out nawild_db
+  679  blastn -query oxphos_gene_sequences.fasta   -db nawild_db   -out oxphos_vs_nawild.blastn.out   -evalue 1e-10   -outfmt 6   -num_threads 4
+  680  head oxphos_vs_nawild.blastn.out
+  681  cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
+  682  awk '{start=($3<$4)?$3:$4; end=($3>$4)?$3:$4; print $2"\t"start-1"\t"end"\t"$1}' oxphos_gene_hits_coords.txt > oxphos_blast_hits.bed
+  683  head oxphos_blast_hits.bed
+  684  wc -l oxphos_blast_hits.bed
+  685  RepeatMasker -species "aves" GCA_030704485.1_NAwild_v1.0_genomic.fna
+  686  conda install -c bioconda repeatmasker
+  687  mamba install -c bioconda repeatmasker
+  688  conda create -n repeatmasker_env -c bioconda -c conda-forge repeatmasker
+  689  conda activate repeatmasker_env
+  690  RepeatMasker -species "aves" GCA_030704485.1_NAwild_v1.0_genomic.fna
+  691  RepeatMasker GCA_030704485.1_NAwild_v1.0_genomic.fna
+  692  RepeatMasker -nolow -norna -no_is GCA_030704485.1_NAwild_v1.0_genomic.fna
+  693  bedtools makewindows -b oxphos_blast_hits.bed -w 120 -s 60 > oxphos_120mer_windows.bed
+  694  bedtools getfasta   -fi GCA_030704485.1_NAwild_v1.0_genomic.fna   -bed oxphos_120mer_windows.bed   -s -name   -fo oxphos_120mer_probes.fasta
+  695  head oxphos_120mer_probes.fasta
+  696  grep ">" oxphos_120mer_probes.fasta | wc -l
+  697  seqkit seq -n oxphos_120mer_probes.fasta | nl -n rz -w 5 | awk '{print ">probe_"$1}' > headers.txt
+  698  seqkit seq -s -i -w 0 oxphos_120mer_probes.fasta | grep -v ">" > seqs.txt
+  699  paste -d "\n" headers.txt seqs.txt > oxphos_120mer_probes_synthesis.fasta
+  700  conda install -c bioconda seqkit
+  701  seqkit seq -s -i -w 0 oxphos_120mer_probes.fasta | grep -v ">" > seqs.txt
+  702  seqkit seq -n oxphos_120mer_probes.fasta | nl -n rz -w 5 | awk '{print ">probe_"$1}' > headers.txt
+  703  seqkit seq -s -i -w 0 oxphos_120mer_probes.fasta | grep -v ">" > seqs.txt
+  704  paste -d "\n" headers.txt seqs.txt > oxphos_120mer_probes_synthesis.fasta
+  705  ls -lh oxphos_120mer_probes_synthesis.fasta
+  706  head oxphos_120mer_probes_synthesis.fasta
+  707  grep ">" oxphos_120mer_probes_synthesis.fasta | wc -l
+  708  paste headers.txt oxphos_120mer_windows.bed > probe_metadata.tsv
+  709  wc -l oxphos_120mer_windows.bed
+  710  seq 1 122828 | awk '{printf "probe_%05d\n", $1}' > probe_ids.txt
+  711  awk '{print $1"\t"$2"\t"$3"\t"$6}' oxphos_120mer_windows.bed > probe_coords.txt
+  712  paste probe_ids.txt probe_coords.txt > probe_metadata.tsv
+  713  head probe_metadata.tsv
+  714  history
+(repeatmasker_env) nabila@UM-56VF1Z3:~/oxphos2$
