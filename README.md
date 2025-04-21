@@ -149,6 +149,20 @@ head oxphos_combined.gff
 #head output looks like the following picture. It is correct format.
 ![Image](https://github.com/user-attachments/assets/0f3720a9-b612-4b45-bf83-38e155ce7482)
 
+# make blast database with the following code. run blastn, preview the results, extract gene location
+```
+makeblastdb -in GCA_030704485.1_NAwild_v1.0_genomic.fna -dbtype nucl -out nawild_db
+blastn -query oxphos_gene_sequences.fasta \
+  -db nawild_db \
+  -out oxphos_vs_nawild.blastn.out \
+  -evalue 1e-10 \
+  -outfmt 6 \
+  -num_threads 4
+head oxphos_vs_nawild.blastn.out
+cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
+
+
+
 
 
 
