@@ -127,13 +127,19 @@ gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
 gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
 
 ```
-#Make direcotry for gbf matches for pekin ducks. run the leep code below to create 74 hits. Do not keep the output gbf hits file in the pekin duck folder. keep it in main directory
+#Make direcotry for gbf matches for pekin ducks. run the leep code below to create 74 hits. Do not keep the output gbf hits file in the pekin duck folder. keep it in main directory. output is 74 gff files.
 ```
 while read gene; do
 echo "Searching for $gene...";   grep -i -w "$gene" pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> gff_matches/${gene}.gff;
 done < oxphos_gene_list.txt
 ```
----
+
+#combine gff matches of 74 genes.. make sure to check the directory. 
+
+```
+cd oxphos2/gff_matches/
+cat *.gff > oxphos_combined.gff
+```
 
 ### 🟢 **Step 4: Extract the DNA sequence of the gene**
 
