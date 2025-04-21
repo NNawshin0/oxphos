@@ -164,6 +164,7 @@ cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coor
 
 ```
 3output file looks like this after blastn
+https://github.com/NNawshin0/oxphos/issues/3#issue-3007540330
 
 
 
