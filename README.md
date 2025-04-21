@@ -1,107 +1,158 @@
+Absolutely! Let's break down the **"Gene Identification and Extraction"** step like I’m explaining it to someone completely new. Think of this like playing a treasure hunt game with a map (your genome), a list of treasures (OXPHOS genes), and tools to dig them out!
 
-# 🧬 OXPHOS_Pathway_Altitude_Adaptation
+---
 
-## Overview
-This repository documents the pipeline developed to analyze ~80 nuclear-encoded genes in the **oxidative phosphorylation (OXPHOS) pathway** for genetic variation between **high- and low-altitude bird populations**, using the *North American Mallard Genome (NAwild_v1.0)* as reference. The pipeline is inspired by previous work on HIF-pathway genes (e.g., Graham & McCracken 2019, 2021) and adapted to the OXPHOS system.
+## 🧩 Step 1: Gene Identification and Extraction (explained super simply)
 
-## 📂 Repository Contents
+### 🎯 **Goal:**
+We want to find and save the *exact DNA sequences* of ~80 special genes called **OXPHOS genes** from a big file that contains the entire DNA of a duck (like a giant instruction book).
 
-- `for_loop_trim_filter.txt` – Trimming/filtering script (FASTX Toolkit)
-- `for_loop_align_assemble.txt` – BWA/SAMtools-based mapping and sorting
-- `remove_orphans_pe.pl` – Perl script to remove unmatched paired-end reads
-- `HIF_reference.fasta` – FASTA reference file (example from HIF project)
-- `bcf_consensus_test.sh` – BCFtools-based consensus variant script
-- `README.md` – This file
+---
 
-## 🧪 Project Workflow
+## 🧸 What are we doing and why?
 
-### 🔹 1. Gene Identification and Extraction
-**Objective:** Identify and extract full gene models (including UTRs/exons/introns) for ~80 nuclear-encoded OXPHOS genes.
+Imagine the duck's genome is a HUGE book with millions of letters (A, T, C, G). Somewhere inside this book are instructions (genes) for making energy. We want to:
+1. Make a list of these energy genes (called OXPHOS genes).
+2. Use that list to **look up where each gene lives in the big genome book**.
+3. **Cut out** just those genes and **save them in a separate file**, so we can study them more easily.
 
-**Steps:**
-- Use **KEGG**, **NCBI Gene**, or literature to curate a list of OXPHOS genes.
-- Download the *GCF_047663525.1_ASM476635v1* reference genome and annotation files.
-- Use `grep`, `awk`, or GFF3 parsers (e.g., `gffread`, BEDTools) to extract coordinates and sequences of each gene.
+---
 
-### 🔹 2. Design of 120mer Hybridization Probes
-**Objective:** Design 120 bp oligonucleotide probes to selectively enrich OXPHOS genes for sequencing.
+## 🧰 What do we need?
+- A **list of OXPHOS gene names** (like COX4I1, NDUFA6, ATP5F1A…)
+- The **duck genome file** (like a giant FASTA file with all DNA letters)
+- The **duck gene map** (a GFF3 or GTF file — tells us where each gene starts and ends)
+- Some tools like:
+  - `grep`: finds words in files
+  - `awk`: smart text cutter
+  - `gffread`: extracts gene sequences
+  - `bedtools getfasta`: cuts out DNA sequences by coordinates
 
-**Steps:**
-- Soft-mask extracted gene sequences using **RepeatMasker**.
-- Design **120mer probes** at 2× tiling density using in-house scripts or services like Arbor Biosciences (formerly MYcroarray).
-- Filter out non-specific probes with genome-wide in silico hybridization tests.
+---
 
-### 🔹 3. Target Enrichment & Sequencing
-**Objective:** Capture and sequence OXPHOS gene regions from genomic libraries.
+## 🧗 Step-by-Step Instructions
 
-**Steps:**
-- Prepare dual-indexed libraries.
-- Hybridize with probe set, purify using magnetic beads.
-- Sequence using Illumina HiSeq (100 bp paired-end reads, 250–300 bp insert size).
+---
 
-### 🔹 4. Quality Control of Raw Reads
-**Objective:** Remove adapters, low-quality reads, and contaminants.
+### 🟢 **Step 1: Get your list of genes**
+You need a list of about 80 genes that are involved in the OXPHOS pathway.
 
-**Script:** `for_loop_trim_filter.txt`
+#### 📌 How?
+- You can Google: `"OXPHOS genes KEGG pathway"`  
+- Or go here: [KEGG Pathway for OXPHOS](https://www.genome.jp/pathway/map00190)
+- Write down all the gene names you find into a plain text file called `oxphos_gene_list.txt`.
 
-```bash
-fastx_clipper -a AGATCGGAAGAGC -l 10 -n -v -i sample_1.fastq -o sample_1_trim.fastq
-fastq_quality_filter -v -q 20 -p 90 -i sample_1_trim.fastq -o sample_1_filter.fastq
+```
+Example content:
+NDUFA6
+COX4I1
+ATP5F1A
+...
 ```
 
-### 🔹 5. Remove Orphaned Read Pairs
-**Objective:** Match paired reads and exclude singletons.
+---
 
-**Script:** `remove_orphans_pe.pl`
+### 🟢 **Step 2: Download the duck genome and annotation**
 
-- Produces: `_sorted.fastq` files and `_singletons.fastq`
+Go to the NCBI genome browser and download:
 
-### 🔹 6. Sequence Alignment and Sorting
-**Objective:** Map quality-filtered reads to reference genes.
+- **Genome FASTA file** (DNA letters):  
+  `GCF_047663525.1_ASM476635v1_genomic.fna.gz`
 
-**Script:** `for_loop_align_assemble.txt`
+- **Annotation GFF3 file** (gene map):  
+  `GCF_047663525.1_ASM476635v1_genomic.gff.gz`
 
-```bash
-bwa mem HIF_reference.fasta sample_1_sorted.fastq sample_2_sorted.fastq > sample.sam
-samtools view -bS sample.sam | samtools sort -o sample.sorted.bam
-```
-
-### 🔹 7. Generate VCF from All Individuals
-**Objective:** Identify SNPs and small variants across populations.
-
-**Command (example):**
+You can do this using `wget` on the command line:
 
 ```bash
-samtools mpileup -uf OXPHOS_reference.fasta *.sorted.bam | bcftools call -vmO z -o oxphos_all.vcf.gz
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.fna.gz
+
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_ASM476635v1/GCF_047663525.1_ASM476635v1_genomic.gff.gz
 ```
 
-### 🔹 8. Variant Filtering and Population Structure Analysis
-**Objective:** Filter and analyze variants for signs of selection.
-
-**Steps:**
-- Decompress and inspect `.vcf.gz` files.
-- Use `VCFtools`, `PLINK`, or custom R scripts to calculate:
-  - **FST** (between populations)
-  - **π (nucleotide diversity)**
-  - **Tajima’s D**
-- Visualize FST across the genome to identify outlier loci.
-
-### 🔹 9. Optional: Test for Adaptive Introgression
-**Objective:** Identify introgressed loci using D-statistics (ABBA–BABA).
-
-**Tool:** [Dsuite](https://github.com/millanek/Dsuite)
+Then unzip them:
 
 ```bash
-Dsuite Dtrios OXPHOS_tree.nwk oxphos.vcf
+gunzip GCF_047663525.1_ASM476635v1_genomic.fna.gz
+gunzip GCF_047663525.1_ASM476635v1_genomic.gff.gz
 ```
 
-## 📘 Notes
+---
 
-- All tools should be installed and in `$PATH`. Conda environments recommended.
-- All `.vcf` outputs are compressed and must be unzipped or viewed with `zcat`, `bcftools view`, etc.
-- Ensure sample naming conventions are consistent across all steps.
+### 🟢 **Step 3: Find the genes in the annotation file**
 
-## 📚 Citation
-If you use this pipeline, please cite:
-- Graham & McCracken (2019). *Heredity* 122:819–832
-- Graham et al. (2021). *Heredity* 127:107–123
+Let’s say you have a gene called `COX4I1`. You want to find it in the annotation file.
+
+Run:
+
+```bash
+grep -i "COX4I1" GCF_047663525.1_ASM476635v1_genomic.gff
+```
+
+This will give you lines like:
+
+```
+scaffold_1269   RefSeq  gene    19340   20472   .   +   .   ID=gene-COX4I1;Name=COX4I1
+```
+
+This tells you the gene lives on `scaffold_1269` from position 19340 to 20472.
+
+---
+
+### 🟢 **Step 4: Extract the DNA sequence of the gene**
+
+There are two easy ways to do this:
+
+#### Option 1: Use `bedtools`
+
+First, make a BED file with all gene coordinates like this:
+
+```
+scaffold_1269   19339   20472   COX4I1
+```
+
+(Remember: BED files start counting from 0, so we subtract 1 from the start position.)
+
+Save that as `oxphos_genes.bed`.
+
+Now extract the DNA:
+
+```bash
+bedtools getfasta -fi GCF_047663525.1_ASM476635v1_genomic.fna -bed oxphos_genes.bed -fo oxphos_genes.fasta
+```
+
+You’ll get a FASTA file with your gene sequences!
+
+---
+
+#### Option 2: Use `gffread`
+
+You can extract all genes at once if your GFF file has `gene_name` or `ID=` tags.
+
+```bash
+gffread -w oxphos_genes.fasta -g GCF_047663525.1_ASM476635v1_genomic.fna GCF_047663525.1_ASM476635v1_genomic.gff
+```
+
+Then you can just open `oxphos_genes.fasta` and grab the sequences for your 80 genes.
+
+---
+
+### 🟢 **Step 5: Double-check your results**
+
+Open the FASTA file in a text editor or use `less`:
+
+```bash
+less oxphos_genes.fasta
+```
+
+Make sure each gene is there with the right name and a DNA sequence.
+
+---
+
+## 🏁 You did it!
+
+You now have the **DNA sequences of all your OXPHOS genes**, ready to use for probe design, alignment, or other analysis!
+
+---
+
+Would you like a ready-made Bash script to automate these steps? Or help with visualizing where these genes are on the genome?
