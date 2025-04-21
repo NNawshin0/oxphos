@@ -96,6 +96,21 @@ scaffold_1269   RefSeq  gene    19340   20472   .   +   .   ID=gene-COX4I1;Name=
 ```
 
 This tells you the gene lives on `scaffold_1269` from position 19340 to 20472.
+--- no annotation file for NA malards. Download annotation files for pekin ducks
+# Create a directory for Pekin duck genome
+mkdir -p pekin_duck_annotation && cd pekin_duck_annotation
+
+# Download the genome sequence
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
+
+# Download the annotation file (GenBank format)
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
+
+# Optional: GFF file (great for tools like BEDTools or gffread)
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
+
+# Unzip them
+gunzip *.gz
 
 ---
 
