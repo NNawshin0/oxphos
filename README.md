@@ -1,7 +1,3 @@
-Absolutely! Let's break down the **"Gene Identification and Extraction"** step like I’m explaining it to someone completely new. Think of this like playing a treasure hunt game with a map (your genome), a list of treasures (OXPHOS genes), and tools to dig them out!
-
----
-
 ## 🧩 Step 1: Gene Identification and Extraction (explained super simply)
 
 ### 🎯 **Goal:**
@@ -144,15 +140,4 @@ Open the FASTA file in a text editor or use `less`:
 ```bash
 less oxphos_genes.fasta
 ```
-
-Make sure each gene is there with the right name and a DNA sequence.
-
----
-
-## 🏁 You did it!
-
-You now have the **DNA sequences of all your OXPHOS genes**, ready to use for probe design, alignment, or other analysis!
-
----
-
 Would you like a ready-made Bash script to automate these steps? Or help with visualizing where these genes are on the genome?
