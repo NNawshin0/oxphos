@@ -140,15 +140,3 @@ Open the FASTA file in a text editor or use `less`:
 ```bash
 less oxphos_genes.fasta
 ```
-
-Make sure each gene is there with the right name and a DNA sequence.
-
----
-
-## 🏁 You did it!
-
-You now have the **DNA sequences of all your OXPHOS genes**, ready to use for probe design, alignment, or other analysis!
-
----
-
-Would you like a ready-made Bash script to automate these steps? Or help with visualizing where these genes are on the genome?
