@@ -165,7 +165,37 @@ cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coor
 ```
 3output file looks like this after blastn
 https://github.com/NNawshin0/oxphos/issues/3#issue-3007540330
+![Image](https://github.com/user-attachments/assets/4d558a9a-3578-4016-9075-d0919a419c6d)
 
+
+```
+Step 3: Extract gene alignment coordinates
+bash
+Copy
+Edit
+cut -f1,2,9,10 oxphos_vs_nawild.blastn.out | sort | uniq > oxphos_gene_hits_coords.txt
+Extracts key columns:
+
+Query ID (gene)
+
+Subject ID (scaffold)
+
+Start / End coordinates
+
+Sorted and deduplicated to retain unique hits
+
+📍 Step 4: Convert to BED format for sequence extraction or visualization
+bash
+Copy
+Edit
+awk '{start=($3<$4)?$3:$4; end=($3>$4)?$3:$4; print $2"\t"start-1"\t"end"\t"$1}' oxphos_gene_hits_coords.txt > oxphos_blast_hits.bed
+BED format is 0-based and left-to-right → this command ensures that:
+
+Coordinates are correctly ordered
+
+Start position is offset by -1 for BED compatibility
+
+Produces a BED file of all OXPHOS gene matches in the mallard genome
 
 
 
