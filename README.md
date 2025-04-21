@@ -101,17 +101,38 @@ This tells you the gene lives on `scaffold_1269` from position 19340 to 20472.
 mkdir -p pekin_duck_annotation && cd pekin_duck_annotation
 
 # Download the genome sequence
+
+```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
 
+```
 # Download the annotation file (GenBank format)
+
+```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
 
+```
 # Optional: GFF file (great for tools like BEDTools or gffread)
+
+```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/047/663/525/GCF_047663525.1_IASCAAS_PekinDuck_T2T/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
 
+```
 # Unzip them
-gunzip *.gz
 
+```
+gunzip *.gz
+gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.fna.gz
+gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gbff.gz
+gunzip GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff.gz
+
+```
+#Make direcotry for gbf matches for pekin ducks. run the leep code below to create 74 hits. Do not keep the output gbf hits file in the pekin duck folder. keep it in main directory
+```
+while read gene; do
+echo "Searching for $gene...";   grep -i -w "$gene" pekin_duck_annotation/GCF_047663525.1_IASCAAS_PekinDuck_T2T_genomic.gff >> gff_matches/${gene}.gff;
+done < oxphos_gene_list.txt
+```
 ---
 
 ### 🟢 **Step 4: Extract the DNA sequence of the gene**
