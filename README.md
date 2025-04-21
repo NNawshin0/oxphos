@@ -45,6 +45,7 @@ COX4I1
 ATP5F1A
 ...
 ```
+https://www.kegg.jp/pathway/map00190
 ![image](https://github.com/user-attachments/assets/6c87540a-9426-4f05-b914-1420dbcf3844)
 --- gene list downloaded and uploaded to oxphos repo as OXPHOS_gene_List.csv
 ---
